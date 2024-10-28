@@ -74,7 +74,55 @@ class MyApp extends StatelessWidget {
                         fontSize: 40),
                   ),
                 ],
-              )
+              ),
+            ],
+          ),
+        ),
+        drawer: Drawer(
+          //seperti sidebar yg terhide/offset
+          backgroundColor: Colors.pink[400],
+          child: ListView(
+            //seperti column tetapi bisa di scroll jika jumlah children melebihi layar/tampilan
+            children: [
+              const DrawerHeader(
+                //seperti appbar tetapi didalam drawer
+                child: Column(
+                  children: [
+                    Flexible(
+                      //agar terlihat flexibel di semua layar/device
+                      flex: 2,
+                      //perbandingannya dengan flexibel yang lain adalah 2
+                      // cara menghitungnya adalah banyaknya nilai flex dibagi dengan nilai flex itu sendiri
+                      // contoh nya di sini terdapat total/banyaknya nilai fles adalah 3, sedangkan nilai flex itu sendiri adalah 2
+                      // maka perbandingannya adalaha 2per3 => 2/3
+                      child: Image(
+                        //menambahkan gambar
+                        image: NetworkImage(
+                            //menagambil gambar yg bersumberkan dari internet
+                            'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+                      ),
+                    ),
+                    Divider(
+                      //membuat seperti garis pembatas
+                      thickness: 1,
+                      //menambahkan ketebalan
+                    ),
+                    Flexible(
+                      flex: 1,
+                      child: Text('Drawer header'),
+                    ),
+                  ],
+                ),
+              ),
+              ListTile(
+                //sama seperti column tetapi memiliki banyak paramter yang berspesifik
+                // dan memiliki paramter ontap yang dimana jika diklik akan menjalankan fungsi tertentu
+                title: const Text(
+                  'About',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                onTap: () {},
+              ),
             ],
           ),
         ),
