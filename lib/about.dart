@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hyperlink/hyperlink.dart'; //cek di baris ke-335
 
+//update pada baris ke-23
+
 // untuk melihat hasilnya: ganti pada main.dart, di method RunApp, ganti parametternya ke About.dart
 // coppy code dibawah ini lalu ganti yang ada di main.dart
 //-> void main(List<String> args) {
@@ -17,6 +19,12 @@ class About extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                //sama halnya seperti Navigator.push, ini untuk kemabali ke halaman sebelumnya
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back)),
           title: const Text(
             'About Manchester United',
             style: TextStyle(
